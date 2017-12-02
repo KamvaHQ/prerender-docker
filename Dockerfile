@@ -16,11 +16,11 @@ RUN \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /usr/src/app
-RUN groupadd -r prerender && useradd -r -g prerender -d /usr/src/app prerender
-RUN chown prerender:prerender /usr/src/app
+RUN mkdir -p /usr/src/app && \
+  mkdir -p /.pm2 && \
+  chgrp -R 0 /.pm2 && \
+  chmod -R g=u /.pm2
 
-USER prerender
 WORKDIR /usr/src/app
 
 COPY yarn.lock /usr/src/app/
@@ -30,3 +30,4 @@ COPY . /usr/src/app
 
 CMD [ "dumb-init", "yarn", "prod" ]
 
+USER 1001
