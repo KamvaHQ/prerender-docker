@@ -20,6 +20,8 @@ RUN mkdir -p /usr/src/app && \
   mkdir -p /.pm2 && \
   chgrp -R 0 /.pm2 && \
   chmod -R g=u /.pm2
+RUN groupadd -r prerender && useradd -r -g prerender -d /usr/src/app prerender
+RUN chown prerender:prerender /usr/src/app
 
 WORKDIR /usr/src/app
 
@@ -29,5 +31,3 @@ RUN yarn install
 COPY . /usr/src/app
 
 CMD [ "dumb-init", "yarn", "prod" ]
-
-USER 1001
