@@ -17,9 +17,9 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /usr/src/app && \
-  mkdir -p /.pm2 && \
-  chgrp -R 0 /.pm2 && \
-  chmod -R g=u /.pm2
+  mkdir -p /.pm2 /.cache/yarn && \
+  chgrp -R 0 /.pm2 /.cache/yarn && \
+  chmod -R g=u /.pm2 /.cache/yarn
 RUN groupadd -r prerender && useradd -r -g prerender -d /usr/src/app prerender
 RUN chown prerender:prerender /usr/src/app
 
