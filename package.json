@@ -7,7 +7,7 @@
     "html-minifier": "^3.2.7",
     "pm2": "^2.8.0",
     "prerender": "5.0.3",
-    "prerender-redis-cache": "git+https://github.com/KamvaHQ/prerender-redis-cache.git"
+    // "prerender-redis-cache": "git+https://github.com/KamvaHQ/prerender-redis-cache.git"
   },
   "devDependencies": {},
   "scripts": {
