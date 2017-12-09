@@ -12,7 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "prod": "pm2 start server.js --no-daemon --instances=1"
+    "prod": "node server.js"
   },
   "license": "MIT"
 }
